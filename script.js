@@ -8,42 +8,57 @@
 //var CurrentDate = document.querySelector ("m");
 
 var plannertimes = document.querySelector ("plannertimes");
-var hours = document.querySelector ("getHours");
 var containerTime = document.querySelector("time-block-container");
-var currentTime = document.querySelector("#hour");
-
+//var currentTime = document.querySelector("#hour");
+var time = document.querySelector("#time-block");
 //Current Date + Time 
 var currentDate = moment().format('dddd, MMMM Do YYYY, h:mm a')
 console.log(currentDate);
 
 
 // Create & Display Time
-// times of the day \
-for (let i = 0; i <=23; i++) {
+// For Loop for times of the day 
+{ 
+var time = "";
+var i;
+for ( i = 8; i <25; i++) {
+time += "" + i + "<br>";
+}
+ document.getElementById("timeHour").innerHTML = time;
 
 //current time starting colum of time
 var currentTime = moment().startOf ('hh');
 console.log(currentTime);
 
+//.isSame
+moment('2010-10-20').isSame('2009-12-31', 'year'); 
+
+//.isBefore
+moment('2010-10-20').isBefore('2010-10-21'); //
+
+//.isPresent
+?
+
 
 //putting the current time into a row
 let hour = document.createElement("div");
 hour.classList.add("hour", "col-2");
-hour.innerText = currentTime.formate("hh A");
+hour.innerText = currentTime.format("hh A");
 }
 
-
 // Create Display Content 
+let content = document.createElement("div");
+content.classList.add("content", "col-8");
+//allow element to be editable so user can type their to dos
+content.setAttribute("contenteditable", true);
 
 
 
 // Create and Display Save Button 
 let saveBtn = document.createElement("div");
 saveBtn.classList.add("saveBtn", "col-2");
-saveBtn.setAttribute("hourdata",i);
+saveBtn.setAttribute("time" ("i"));
 saveBtn.addEventListener("click", dataSaved);
-
-
 
 //end time 
 //var endTime = moment().endOf('day')
