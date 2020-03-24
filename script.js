@@ -1,26 +1,54 @@
 var plannertimes = document.querySelector ("plannertimes");
 var containerTime = document.querySelector("time-block-container");
-//var currentTime = document.querySelector("#hour");
-var time = document.querySelector("#time-block");
+var currentTime = document.querySelector("#hour");
 
 //Current Date  
 var currentDate = moment().format('dddd, MMMM Do YYYY, h:mm a')
 console.log(currentDate);
 
+
 // Create & Display Time
 // For Loop for times of the day 
- 
 
 for ( let i = 8; i <19; i++) {
 let newRow = $("<div class= 'time-block heightSpace row'>");
 if(i <=12)
 { 
-var time= $("<div class= 'hour col-md-2'>").text(i +"am");
+var time= $("<div class= 'hour col-md-2'>").text(i + "am");
 }else {
-time = $("<div class= 'hour col-md-2'>").text(i - 12 +"pm");
+time = $("<div class= 'hour col-md-2'>").text(i - 12 + "pm");
    }
+   console.log (time)
+   if (localStorage.getItem(i) !== null) {
+      var savedValue = localStorage.getItem(i);
+   }else {
+      savedValue = "";
+   }
+   console.log(savedValue);
+
+// organising past time
+if (moment().format ('hh') > i) {
+var time = $("<div class='col-md-8> <textarea class='textInput" + i + "past textInput'>" + savedValue + "</textarea></div");
 }
-console.log(time)
+console.log(time);
+
+// organising current time
+if (moment().format ('hh') === i) {
+   var time = $("<div class='col-md-8> <textarea class='textInput" + i + "present textInput'>" + savedValue + "</textarea></div");
+   }
+   console.log(time);
+   
+
+// organising future time
+if (moment().format ('hh') < i) {
+   var time = $("<div class='col-md-8> <textarea class='textInput" + i + "future textInput'>" + savedValue + "</textarea></div");
+   }
+   console.log(time);
+   }
+
+$
+
+
 //time += "" + i + "<br>";
 
  //document.getElementById("timeHour").innerHTML = time;
@@ -30,9 +58,6 @@ console.log(time)
 // var Currenthour;
 //  let momenthour = date.hour(i);
 
-// //current time starting colum of time
-// var currentTime = moment().startOf ('hh');
-// console.log(currentTime);
 
 // //.isSame
 
