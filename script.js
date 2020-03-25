@@ -6,12 +6,11 @@ var currentTime = document.querySelector("#hour");
 var currentDate = moment().format('dddd, MMMM Do YYYY, h:mm a')
 console.log(currentDate);
 
-
 // Create & Display Time
 // For Loop for times of the day 
-
-for ( let i = 8; i <19; i++) {
-let newRow = $("<div class= 'time-block heightSpace row'>");
+fucntion timeOfDay()
+for ( let i = 0; i <9; i++) {
+let newRow = $("<div class= 'time-block row'>");
 if(i <=12)
 { 
 var time= $("<div class= 'hour col-md-2'>").text(i + "am");
@@ -23,30 +22,39 @@ time = $("<div class= 'hour col-md-2'>").text(i - 12 + "pm");
       var savedValue = localStorage.getItem(i);
    }else {
       savedValue = "";
+
+   $(".container").append(timeOfDay);
+   setRowColor(textarea, i);
    }
    console.log(savedValue);
+   
 
 // organising past time
-if (moment().format ('hh') > i) {
-var time = $("<div class='col-md-8> <textarea class='textInput" + i + "past textInput'>" + savedValue + "</textarea></div");
+if (moment().format ("hh") > i) {
+var time = $("<div class='col-md-8> <textarea class='description" + i + "past textInput'>" + savedValue + "</textarea></div");
 }
 console.log(time);
 
 // organising current time
 if (moment().format ('hh') === i) {
-   var time = $("<div class='col-md-8> <textarea class='textInput" + i + "present textInput'>" + savedValue + "</textarea></div");
+   var time = $("<div class='col-md-8> <textarea class='description" + i + "present textInput'>" + savedValue + "</textarea></div");
    }
    console.log(time);
    
 
 // organising future time
 if (moment().format ('hh') < i) {
-   var time = $("<div class='col-md-8> <textarea class='textInput" + i + "future textInput'>" + savedValue + "</textarea></div");
+   var time = $("<div class='col-md-8> <textarea class='description" + i + "future textInput'>" + savedValue + "</textarea></div");
    }
    console.log(time);
    }
 
-$
+// Save Button
+$(savedValue).on("click", ".saveBtn", function () {
+localStorage.setItem($(this).data("hour"), $(".description" + $(this).data)("hour")).val();
+});
+console.log(saveBtn);
+   
 
 
 //time += "" + i + "<br>";
