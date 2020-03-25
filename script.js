@@ -2,6 +2,7 @@ var plannertimes = document.querySelector ("plannertimes");
 var containerTime = document.querySelector("time-block-container");
 var time = document.querySelector("#hour");
 var newRow = document.querySelector("#row")
+
 //Current Date  
 var currentDate = moment().format('dddd, MMMM Do YYYY, h:mm a')
 console.log(currentDate);
@@ -25,17 +26,16 @@ if (localStorage.getItem(i) !== null) {
 var savedValue = localStorage.getItem(i);
 } else {
 savedValue = "";
-
-newRow.append(time, savedValue, toDo);
-console.log(newRow)
-$(".container").append(newRow);
+console.log(newRow);
 console.log(`^^New Row`);
 }
+$(".container").append(newRow);
+newRow.append(time);
 console.log(savedValue);
-
+var currentHour = moment().format('HH');
 
 // organising past time
-if (moment().format ("HH") > i) {
+if (currentHour > i) {
 var time = $("<div class= 'col-md-8> <textarea class= 'description" + i + "past textInput'>" + savedValue + "</textarea></div>");
 console.log("Past");
 }
@@ -43,7 +43,7 @@ console.log(time);
 
 
 // organising current time
-if (moment().format ('HH') == i) {
+if (currentHour == i) {
    var time = $("<div class= 'col-md-8> <textarea class= 'description" + i + "present textInput'>" + savedValue + "</textarea></div>");
    console.log("Current");
 }
@@ -51,7 +51,7 @@ if (moment().format ('HH') == i) {
    
 
 // organising future time 
-if (moment().format ('HH') < i) {
+if (currentHour < i) {
    var time = $("<div class= 'col-md-8> <textarea class= 'description" + i + "future textInput'>" + savedValue + "</textarea></div>");
    console.log("Future");
 }
@@ -64,10 +64,7 @@ var toDo= $("<div class= '.textarea col-md-8'>");
 $("toDo").submit(function( event ){
    event.preventDefault();
 })
-
-// toDo.text(textarea[index]) = todoText
-// console.log(toDo);
-
+// Save
 function setStyles() {
    var savedValue = localStorage.getItem('.saveBtn');
    var time = localStorage.getItem('.time-block');
