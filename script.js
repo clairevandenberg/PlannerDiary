@@ -13,19 +13,19 @@ var toDo = [];
 for (let i = 8; i <19; i++) {
 let index = i - 8;
 let newRow = $("<div class= 'time-block row'>");
-if(i <=12)
+if (i <=12)
 { 
 var time= $("<div class= 'hour col-md-2'>").text(i + "am");
-}else {
+} else {
 time = $("<div class= 'hour col-md-2'>").text(i - 12 + "pm");
 }
 console.log (time)
 if (localStorage.getItem(i) !== null) {
 var savedValue = localStorage.getItem(i);
-}else {
+} else {
 savedValue = "";
 
-$(".container").append(time, toDo);
+$(".container").append(time, savedValue, textarea);
 }
 console.log(savedValue);
 
@@ -53,9 +53,12 @@ if (moment().format ('hh') < i) {
 
 
 // Hour Description 
+$("textarea").submit(function( event ){
+   event.preventDefault();
+})
 var textarea= $("<div class= 'textarea col-md-8'>").toDo;
-toDo.text(textarea[index]) = todoText
-console.log(toDo);
+// toDo.text(textarea[index]) = todoText
+// console.log(toDo);
 
 
 // Save Button
@@ -67,57 +70,12 @@ var savedValue= $("<div class = 'saveBtn col-md-2>")
 };
   
 
-
-//time += "" + i + "<br>";
-
- //document.getElementById("timeHour").innerHTML = time;
-
-//  // object for moment to calculate isBefore and isSame
-// var date;
-// var Currenthour;
-//  let momenthour = date.hour(i);
-
-
-// //.isSame
-
-// //.isBefore
-// let descriptionClass = momenthour.isBefore(moment(), 'hour')
-
-// //moment(time).isBefore(time); //
-
-// //.isPresent
-// // ?
-
-
-// //putting the current time into a row
-// let hour = document.createElement("div");
-// hour.classList.add("hour", "col-2");
-// hour.innerText = currentTime.format("hh A");
-// }
-
-// // Create Display Content 
-// let content = document.createElement("div");
-// content.classList.add("content", "col-8");
-// //allow element to be editable so user can type their to dos
-// content.setAttribute("contenteditable", true);
-
-// // Create and Display Save Button 
-// let saveBtn = document.createElement("div");
-// saveBtn.classList.add("saveBtn", "col-2");
-// saveBtn.setAttribute("time" ("i"));
-// saveBtn.addEventListener("click", dataSaved);
-
-// // setting stype
-
-// // hour 
-// ("hour", "col-2");
-// // descripton 
-// ("content", "col-8");
-// // save 
-// ("saveBtn", "col-2");
-
-// // current time 
-// ("present")
-
-// //future
-// ("future");
+// for loop time 
+// current time
+// link current time to for loop times
+// if past if future if current 
+// type into description 
+// connect the description to the time 
+// local storage description 
+// connect time + description to saveBtn
+// local storage elements in saveBtn
