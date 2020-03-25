@@ -37,6 +37,7 @@ var currentHour = moment().format('HH');
 // organising past time
 if (currentHour > i) {
 var time = $("<div class= 'col-md-8> <textarea class= 'description" + i + "past textInput'>" + savedValue + "</textarea></div>");
+newRow.addClass("past");
 console.log("Past");
 }
 console.log(time);
@@ -45,7 +46,8 @@ console.log(time);
 // organising current time
 if (currentHour == i) {
    var time = $("<div class= 'col-md-8> <textarea class= 'description" + i + "present textInput'>" + savedValue + "</textarea></div>");
-   console.log("Current");
+   newRow.addClass("present");
+   console.log("Present");
 }
    console.log(time);
    
@@ -53,6 +55,7 @@ if (currentHour == i) {
 // organising future time 
 if (currentHour < i) {
    var time = $("<div class= 'col-md-8> <textarea class= 'description" + i + "future textInput'>" + savedValue + "</textarea></div>");
+   newRow.addClass("future");
    console.log("Future");
 }
    console.log(time);
@@ -64,6 +67,7 @@ var toDo= $("<div class= '.textarea col-md-8'>");
 $("toDo").submit(function( event ){
    event.preventDefault();
 })
+
 // Save
 function setStyles() {
    var savedValue = localStorage.getItem('.saveBtn');
