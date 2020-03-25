@@ -25,7 +25,7 @@ var savedValue = localStorage.getItem(i);
 } else {
 savedValue = "";
 
-$(".container").append(time, savedValue, textarea);
+$(".container").append(time, savedValue, toDo);
 }
 console.log(savedValue);
 
@@ -51,23 +51,32 @@ if (moment().format ('hh') < i) {
    console.log(time);
    }
 
-
 // Hour Description 
-$("textarea").submit(function( event ){
+   var toDo= $("<div class= '.textarea col-md-8'>");
+$("toDo").submit(function( event ){
    event.preventDefault();
 })
-var textarea= $("<div class= 'textarea col-md-8'>").toDo;
 // toDo.text(textarea[index]) = todoText
 // console.log(toDo);
 
-
+function setStyles() {
+   var savedValue = localStorage.getItem('/saveBtn');
+   var time = localStorage.getItem('.time-block');
+   var toDo = localStorage.getItem('.description');
+}
 // Save Button
-$(savedValue).on("click"), function () {
-event.preventDefault ();
-var savedValue= $("<div class = 'saveBtn col-md-2>")
-   let index = $(this).attr("savedValue Index");
-   let toDo = $(".input"+ index).val();
-};
+// funcuton save
+// var savedValue= localStorage.getItem
+// $(savedValue).on("click"), function () {
+// event.preventDefault ();
+// var savedValue= $("<div class = 'saveBtn col-md-2>")
+//    let index = $(this).attr("savedValue Index");
+//    let toDo = $(".input"+ index).val();
+// };
+
+// function saveLocalStorage
+// localStorage.getItem(time, toDo, savedValue JSON.stringify(currentDate));
+
   
 
 // for loop time 
