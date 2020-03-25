@@ -8,8 +8,9 @@ console.log(currentDate);
 
 // Create & Display Time
 // For Loop for times of the day 
-fucntion timeOfDay()
-for ( let i = 0; i <9; i++) {
+var toDo
+
+for ( let i = 8; i <21; i++) {
 let newRow = $("<div class= 'time-block row'>");
 if(i <=12)
 { 
@@ -23,11 +24,10 @@ time = $("<div class= 'hour col-md-2'>").text(i - 12 + "pm");
    }else {
       savedValue = "";
 
-   $(".container").append(timeOfDay);
-   setRowColor(textarea, i);
+   $(".container").append(time, toDo);
    }
    console.log(savedValue);
-   
+
 
 // organising past time
 if (moment().format ("hh") > i) {
@@ -48,6 +48,10 @@ if (moment().format ('hh') < i) {
    }
    console.log(time);
    }
+
+// Hour Description 
+toDo[index] = todoText
+console.log(toDo);
 
 // Save Button
 $(savedValue).on("click", ".saveBtn", function () {
