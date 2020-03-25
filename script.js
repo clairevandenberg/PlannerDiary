@@ -69,13 +69,17 @@ $("toDo").submit(function( event ){
 })
 
 // Save
-function setStyles() {
-   var savedValue = localStorage.getItem('.saveBtn');
-   var time = localStorage.getItem('.time-block');
-   var toDo = localStorage.getItem('.description');
+$("saveBtn").click();
+{
+var savedValue= $("<div class= 'col-md-2> <class= saveBtn></div>")
+newRow.addClass("saveBtn");
+console.log(savedValue);
+
+savedValue.localStorage.getItem('.saveBtn');
+var time = localStorage.getItem('.time-block');
+var toDo = localStorage.getItem('.description');
 }
   
-
 // for loop time 
 // current time
 // link current time to for loop times
