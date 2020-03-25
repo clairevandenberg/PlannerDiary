@@ -4,13 +4,15 @@ var currentTime = document.querySelector("#hour");
 
 //Current Date  
 var currentDate = moment().format('dddd, MMMM Do YYYY, h:mm a')
+$("#currentDate").text(currentTime)
 console.log(currentDate);
 
 // Create & Display Time
 // For Loop for times of the day 
-var toDo
+var toDo = [];
 
-for ( let i = 8; i <21; i++) {
+for ( let i = 8; i <19; i++) {
+let index = i - 8;
 let newRow = $("<div class= 'time-block row'>");
 if(i <=12)
 { 
@@ -49,15 +51,20 @@ if (moment().format ('hh') < i) {
    console.log(time);
    }
 
+
 // Hour Description 
-toDo[index] = todoText
+var textarea= $("<div class= 'textarea col-md-8'>").toDo;
+toDo.text(textarea[index]) = todoText
 console.log(toDo);
 
+
+
 // Save Button
-$(savedValue).on("click", ".saveBtn", function () {
-localStorage.setItem($(this).data("hour"), $(".description" + $(this).data)("hour")).val();
+$(savedValue).on("click", function (event) {
+   event.preventDefault ();
+   let index = $(this).attr("data-btnIndex");
+   let toDo = $(".input"+index).val();
 });
-console.log(saveBtn);
    
 
 
