@@ -1,7 +1,7 @@
 var plannertimes = document.querySelector ("plannertimes");
 var containerTime = document.querySelector("time-block-container");
-var currentTime = document.querySelector("#hour");
-
+var time = document.querySelector("#hour");
+var newRow = document.querySelector("#row")
 //Current Date  
 var currentDate = moment().format('dddd, MMMM Do YYYY, h:mm a')
 console.log(currentDate);
@@ -30,14 +30,13 @@ newRow.append(time, savedValue, toDo);
 console.log(newRow)
 $(".container").append(newRow);
 console.log(`^^New Row`);
-
 }
 console.log(savedValue);
 
 
 // organising past time
 if (moment().format ("HH") > i) {
-var time = $("<div class='col-md-8> <textarea class='description" + i + "past textInput'>" + savedValue + "</textarea></div>");
+var time = $("<div class= 'col-md-8> <textarea class= 'description" + i + "past textInput'>" + savedValue + "</textarea></div>");
 console.log("Past");
 }
 console.log(time);
@@ -45,7 +44,7 @@ console.log(time);
 
 // organising current time
 if (moment().format ('HH') == i) {
-   var time = $("<div class='col-md-8> <textarea class='description" + i + "present textInput'>" + savedValue + "</textarea></div>");
+   var time = $("<div class= 'col-md-8> <textarea class= 'description" + i + "present textInput'>" + savedValue + "</textarea></div>");
    console.log("Current");
 }
    console.log(time);
@@ -53,7 +52,7 @@ if (moment().format ('HH') == i) {
 
 // organising future time 
 if (moment().format ('HH') < i) {
-   var time = $("<div class='col-md-8> <textarea class='description" + i + "future textInput'>" + savedValue + "</textarea></div>");
+   var time = $("<div class= 'col-md-8> <textarea class= 'description" + i + "future textInput'>" + savedValue + "</textarea></div>");
    console.log("Future");
 }
    console.log(time);
@@ -61,11 +60,11 @@ if (moment().format ('HH') < i) {
    }
 
 // Hour Description 
-   var toDo= $("<div class= '.textarea col-md-8'>");
+var toDo= $("<div class= '.textarea col-md-8'>");
 $("toDo").submit(function( event ){
    event.preventDefault();
-   newRow.append(time, savedValue, toDo);
 })
+
 // toDo.text(textarea[index]) = todoText
 // console.log(toDo);
 
@@ -73,21 +72,7 @@ function setStyles() {
    var savedValue = localStorage.getItem('.saveBtn');
    var time = localStorage.getItem('.time-block');
    var toDo = localStorage.getItem('.description');
-
 }
-// Save Button
-// funcuton save
-// var savedValue= localStorage.getItem
-// $(savedValue).on("click"), function () {
-// event.preventDefault ();
-// var savedValue= $("<div class = 'saveBtn col-md-2>")
-//    let index = $(this).attr("savedValue Index");
-//    let toDo = $(".input"+ index).val();
-// };
-
-// function saveLocalStorage
-// localStorage.getItem(time, toDo, savedValue JSON.stringify(currentDate));
-
   
 
 // for loop time 
